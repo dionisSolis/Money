@@ -5,19 +5,26 @@ namespace Rubles
     {
         static void Main(string[] args)
         {
+            double rubles;
+            double euros;
+            double dollars;
+            double rublesEuros;
+            double rublesDollars;
+            double dollarsEuros;
+            string answer;
+            int operation;
+            double sum;
+
             Console.WriteLine("Введите Ваш баланс");
             Console.Write("Рубли: ");
-            double rubles = double.Parse(Console.ReadLine());
+            rubles = double.Parse(Console.ReadLine());
             Console.Write("Евро: ");
-            double euros = double.Parse(Console.ReadLine());
+            euros = double.Parse(Console.ReadLine());
             Console.Write("Доллары: ");
-            double dollars = double.Parse(Console.ReadLine());
-            double rublesEuros = 59.38;
-            double rublesDollars = 59.63;
-            double dollarsEuros = 0.98;
-            string answer = "";
-            int operation = 1;
-            double sum = 0;
+            dollars = double.Parse(Console.ReadLine());
+            rublesEuros = 59.38;
+            rublesDollars = 59.63;
+            dollarsEuros = 0.98;
 
             while (true)
             {
