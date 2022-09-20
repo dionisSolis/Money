@@ -1,5 +1,5 @@
 using System;
- namespace Rubles
+namespace Rubles
 {
     class Program
     {
@@ -15,6 +15,10 @@ using System;
             double rublesEuros = 59.38;
             double rublesDollars = 59.63;
             double dollarsEuros = 0.98;
+            string answer = "";
+            int operation = 1;
+            double sum = 0;
+
             while (true)
             {
                 Console.WriteLine("Выберите тип операции и введите ее цифру:");
@@ -24,50 +28,51 @@ using System;
                 Console.WriteLine("4.Доллары в рубли");
                 Console.WriteLine("5.Доллары в евро");
                 Console.WriteLine("6.Евро в доллары");
-                int operation = int.Parse(Console.ReadLine());
+                operation = int.Parse(Console.ReadLine());
                 Console.WriteLine("Введите нужную сумму");
-                double sum = double.Parse(Console.ReadLine());
-                if (operation == 1)
+                sum = double.Parse(Console.ReadLine());
+
+                switch (operation)
                 {
-                    rubles -= sum;
-                    euros += (sum / rublesEuros);
+                    case 1:
+                        rubles -= sum;
+                        euros += (sum / rublesEuros);
+                        break;
+                    case 2:
+                        euros -= sum;
+                        rubles += (sum * rublesEuros);
+                        break;
+                    case 3:
+                        rubles -= sum;
+                        dollars += (sum / rublesDollars);
+                        break;
+                    case 4:
+                        dollars -= sum;
+                        rubles += (sum * rublesDollars);
+                        break;
+                    case 5:
+                        dollars -= sum;
+                        euros += (sum * dollarsEuros);
+                        break;
+                    case 6:
+                        euros -= sum;
+                        dollars += (sum / rublesDollars);
+                        break;
                 }
-                else if (operation == 2)
-                {
-                    euros -= sum;
-                    rubles += (sum * rublesEuros);
-                }
-                else if (operation == 3)
-                {
-                    rubles -= sum;
-                    dollars += (sum / rublesDollars);
-                }
-                else if (operation == 4)
-                {
-                    dollars -= sum;
-                    rubles += (sum * rublesDollars);
-                }
-                else if (operation == 5)
-                {
-                    dollars -= sum;
-                    euros += (sum * dollarsEuros);
-                }
-                else if (operation == 6)
-                {
-                    euros -= sum;
-                    dollars += (sum / rublesDollars);
-                }
+
                 Console.WriteLine("Ваш баланс");
                 Console.WriteLine($"Рубли: {rubles}");
                 Console.WriteLine($"Евро: {euros}");
                 Console.WriteLine($"Доллары: {dollars}");
                 Console.WriteLine("Желаете продолжить? Y/N?");
-                string answer = Console.ReadLine();
+                answer = Console.ReadLine();
+
                 if (answer == "N")
                 {
                     Console.WriteLine("До свидания!");
                     break;
                 }
+
             }
             Console.Read();
         }
