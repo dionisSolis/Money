@@ -8,10 +8,10 @@ namespace Rubles
             double rubles;
             double euros;
             double dollars;
-            double rublesEuros;
-            double rublesDollars;
-            double dollarsEuros;
-            string answer;
+            double rublesEuros = 59.38;
+            double rublesDollars = 59.63;
+            double dollarsEuros = 0.98;
+            string answer = "";
             int operation;
             double sum;
 
@@ -22,12 +22,10 @@ namespace Rubles
             euros = double.Parse(Console.ReadLine());
             Console.Write("Доллары: ");
             dollars = double.Parse(Console.ReadLine());
-            rublesEuros = 59.38;
-            rublesDollars = 59.63;
-            dollarsEuros = 0.98;
 
-            while (true)
+            while (answer != "N")
             {
+                Console.WriteLine();
                 Console.WriteLine("Выберите тип операции и введите ее цифру:");
                 Console.WriteLine("1.Рубли в евро");
                 Console.WriteLine("2.Евро в рубли");
@@ -38,49 +36,78 @@ namespace Rubles
                 operation = int.Parse(Console.ReadLine());
                 Console.WriteLine("Введите нужную сумму");
                 sum = double.Parse(Console.ReadLine());
-
+                
                 switch (operation)
                 {
                     case 1:
+                        if (rubles < sum)
+                        {
+                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
+                            sum = rubles;
+                        }
                         rubles -= sum;
                         euros += (sum / rublesEuros);
                         break;
                     case 2:
+                        if (euros < sum)
+                        {
+                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
+                            sum = euros;
+                        }
                         euros -= sum;
                         rubles += (sum * rublesEuros);
                         break;
                     case 3:
+                        if (rubles < sum)
+                        {
+                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
+                            sum = rubles;
+                        }
                         rubles -= sum;
                         dollars += (sum / rublesDollars);
                         break;
                     case 4:
+                        if (dollars < sum)
+                        {
+                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
+                            sum = dollars;
+                        }
                         dollars -= sum;
                         rubles += (sum * rublesDollars);
                         break;
                     case 5:
+                        if (dollars < sum)
+                        {
+                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
+                            sum = dollars;
+                        }
                         dollars -= sum;
                         euros += (sum * dollarsEuros);
                         break;
                     case 6:
+                        if (euros < sum)
+                        {
+                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
+                            sum = euros;
+                        }
                         euros -= sum;
                         dollars += (sum / rublesDollars);
                         break;
+                    default:
+                        Console.WriteLine("Данной операции нет");
+                        break;
                 }
 
+                Console.WriteLine();
                 Console.WriteLine("Ваш баланс");
                 Console.WriteLine($"Рубли: {rubles}");
                 Console.WriteLine($"Евро: {euros}");
                 Console.WriteLine($"Доллары: {dollars}");
                 Console.WriteLine("Желаете продолжить? Y/N?");
                 answer = Console.ReadLine();
-
-                if (answer == "N")
-                {
-                    Console.WriteLine("До свидания!");
-                    break;
-                }
-
             }
+
+            Console.WriteLine("До свидания!");
             Console.Read();
         }
     }
