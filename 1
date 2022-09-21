@@ -19,7 +19,7 @@ namespace Rubles
             Console.Write("Доллары: ");
             dollars = double.Parse(Console.ReadLine());
 
-            while (answer != "N")
+            while (answer != "N" && answer != "n")
             {
                 Console.WriteLine("\nВыберите тип операции и введите ее цифру:");
                 Console.WriteLine("1.Рубли в евро");
@@ -115,12 +115,15 @@ namespace Rubles
                         break;
                 }
 
-                
                 Console.WriteLine("\nВаш баланс");
                 Console.WriteLine($"Рубли: {rubles}");
                 Console.WriteLine($"Евро: {euros}");
                 Console.WriteLine($"Доллары: {dollars}");
                 Console.WriteLine("Желаете продолжить? Y/N?");
+                answer = Console.ReadLine();
+                Console.WriteLine("Вы уверены? Введите ответ еще раз");
+                answer = Console.ReadLine();
+                Console.WriteLine("Повторите предыдущее действие");
                 answer = Console.ReadLine();
             }
 
