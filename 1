@@ -5,12 +5,11 @@ namespace Rubles
     {
         static void Main(string[] args)
         {
-            double rubles; double euros; double dollars;
-            double rublesToEuros = 59.38; double rublesToDollars = 59.63; double dollarsToEuros = 0.98;
+            double rubles, euros, dollars;
+            double rublesToEuros = 59.38, rublesToDollars = 59.63, dollarsToEuros = 0.98;
             string answer = "";
             int operation;
             double sumOperation;
-            bool isEnoughMoney;
 
             Console.WriteLine("Введите Ваш баланс");
             Console.Write("Рубли: ");
@@ -22,8 +21,7 @@ namespace Rubles
 
             while (answer != "N")
             {
-                Console.WriteLine();
-                Console.WriteLine("Выберите тип операции и введите ее цифру:");
+                Console.WriteLine("\nВыберите тип операции и введите ее цифру:");
                 Console.WriteLine("1.Рубли в евро");
                 Console.WriteLine("2.Евро в рубли");
                 Console.WriteLine("3.Рубли в доллары");
@@ -31,7 +29,6 @@ namespace Rubles
                 Console.WriteLine("5.Доллары в евро");
                 Console.WriteLine("6.Евро в доллары");
                 operation = int.Parse(Console.ReadLine());
-                isEnoughMoney = true;
 
                 switch (operation)
                 {
@@ -41,12 +38,11 @@ namespace Rubles
                         if (rubles < sumOperation || sumOperation <= 0)
                         {
                             Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
-                            isEnoughMoney = false;
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             rubles -= sumOperation;
-                            euros += (sumOperation / rublesToEuros);
+                            euros += sumOperation / rublesToEuros;
                         }
                         break;
                     case 2:
@@ -55,12 +51,11 @@ namespace Rubles
                         if (euros < sumOperation || sumOperation <= 0)
                         {
                             Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
-                            isEnoughMoney = false;
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             euros -= sumOperation;
-                            rubles += (sumOperation * rublesToEuros);
+                            rubles += sumOperation * rublesToEuros;
                         }
                         break;
                     case 3:
@@ -69,12 +64,11 @@ namespace Rubles
                         if (rubles < sumOperation || sumOperation <= 0)
                         {
                             Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
-                            isEnoughMoney = false;
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             rubles -= sumOperation;
-                            dollars += (sumOperation / rublesToDollars);
+                            dollars += sumOperation / rublesToDollars;
                         }
                         break;
                     case 4:
@@ -83,12 +77,11 @@ namespace Rubles
                         if (dollars < sumOperation || sumOperation <= 0)
                         {
                             Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
-                            isEnoughMoney = false;
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             dollars -= sumOperation;
-                            rubles += (sumOperation * rublesToDollars);
+                            rubles += sumOperation * rublesToDollars;
                         }
                         break;
                     case 5:
@@ -97,12 +90,11 @@ namespace Rubles
                         if (dollars < sumOperation || sumOperation <= 0)
                         {
                             Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
-                            isEnoughMoney = false;
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             dollars -= sumOperation;
-                            euros += (sumOperation * dollarsToEuros);
+                            euros += sumOperation * dollarsToEuros;
                         }
                         break;
                     case 6:
@@ -111,12 +103,11 @@ namespace Rubles
                         if (euros < sumOperation || sumOperation <= 0)
                         {
                             Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
-                            isEnoughMoney = false;
                         }
-                        if (isEnoughMoney)
+                        else
                         {
                             euros -= sumOperation;
-                            dollars += (sumOperation / rublesToDollars);
+                            dollars += sumOperation / rublesToDollars;
                         }
                         break;
                     default:
@@ -124,8 +115,8 @@ namespace Rubles
                         break;
                 }
 
-                Console.WriteLine();
-                Console.WriteLine("Ваш баланс");
+                
+                Console.WriteLine("\nВаш баланс");
                 Console.WriteLine($"Рубли: {rubles}");
                 Console.WriteLine($"Евро: {euros}");
                 Console.WriteLine($"Доллары: {dollars}");
