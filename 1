@@ -5,15 +5,12 @@ namespace Rubles
     {
         static void Main(string[] args)
         {
-            double rubles;
-            double euros;
-            double dollars;
-            double rublesEuros = 59.38;
-            double rublesDollars = 59.63;
-            double dollarsEuros = 0.98;
+            double rubles; double euros; double dollars;
+            double rublesToEuros = 59.38; double rublesToDollars = 59.63; double dollarsToEuros = 0.98;
             string answer = "";
             int operation;
             double sum;
+            bool isEnough;
 
             Console.WriteLine("Введите Ваш баланс");
             Console.Write("Рубли: ");
@@ -34,64 +31,93 @@ namespace Rubles
                 Console.WriteLine("5.Доллары в евро");
                 Console.WriteLine("6.Евро в доллары");
                 operation = int.Parse(Console.ReadLine());
-                Console.WriteLine("Введите нужную сумму");
-                sum = double.Parse(Console.ReadLine());
-                
+                isEnough = true;
+
                 switch (operation)
                 {
                     case 1:
-                        if (rubles < sum)
+                        Console.WriteLine("Введите нужную сумму");
+                        sum = double.Parse(Console.ReadLine());
+                        if (rubles < sum || sum <= 0)
                         {
-                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
-                            sum = rubles;
+                            Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
+                            isEnough = false;
                         }
-                        rubles -= sum;
-                        euros += (sum / rublesEuros);
+                        if (isEnough)
+                        {
+                            rubles -= sum;
+                            euros += (sum / rublesToEuros);
+                        }
                         break;
                     case 2:
-                        if (euros < sum)
+                        Console.WriteLine("Введите нужную сумму");
+                        sum = double.Parse(Console.ReadLine());
+                        if (euros < sum || sum <= 0)
                         {
-                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
-                            sum = euros;
+                            Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
+                            isEnough = false;
                         }
-                        euros -= sum;
-                        rubles += (sum * rublesEuros);
+                        if (isEnough)
+                        {
+                            euros -= sum;
+                            rubles += (sum * rublesToEuros);
+                        }
                         break;
                     case 3:
-                        if (rubles < sum)
+                        Console.WriteLine("Введите нужную сумму");
+                        sum = double.Parse(Console.ReadLine());
+                        if (rubles < sum || sum <= 0)
                         {
-                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
-                            sum = rubles;
+                            Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
+                            isEnough = false;
                         }
-                        rubles -= sum;
-                        dollars += (sum / rublesDollars);
+                        if (isEnough)
+                        {
+                            rubles -= sum;
+                            dollars += (sum / rublesToDollars);
+                        }
                         break;
                     case 4:
-                        if (dollars < sum)
+                        Console.WriteLine("Введите нужную сумму");
+                        sum = double.Parse(Console.ReadLine());
+                        if (dollars < sum || sum <= 0)
                         {
-                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
-                            sum = dollars;
+                            Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
+                            isEnough = false;
                         }
-                        dollars -= sum;
-                        rubles += (sum * rublesDollars);
+                        if (isEnough)
+                        {
+                            dollars -= sum;
+                            rubles += (sum * rublesToDollars);
+                        }
                         break;
                     case 5:
-                        if (dollars < sum)
+                        Console.WriteLine("Введите нужную сумму");
+                        sum = double.Parse(Console.ReadLine());
+                        if (dollars < sum || sum <= 0)
                         {
-                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
-                            sum = dollars;
+                            Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
+                            isEnough = false;
                         }
-                        dollars -= sum;
-                        euros += (sum * dollarsEuros);
+                        if (isEnough)
+                        {
+                            dollars -= sum;
+                            euros += (sum * dollarsToEuros);
+                        }
                         break;
                     case 6:
-                        if (euros < sum)
+                        Console.WriteLine("Введите нужную сумму");
+                        sum = double.Parse(Console.ReadLine());
+                        if (euros < sum || sum <= 0)
                         {
-                            Console.WriteLine("Сумма операции изменена в связи с нехваткой средств");
-                            sum = euros;
+                            Console.WriteLine("Недопустимая сумма, попробуйте еще раз");
+                            isEnough = false;
                         }
-                        euros -= sum;
-                        dollars += (sum / rublesDollars);
+                        if (isEnough)
+                        {
+                            euros -= sum;
+                            dollars += (sum / rublesToDollars);
+                        }
                         break;
                     default:
                         Console.WriteLine("Данной операции нет");
