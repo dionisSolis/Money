@@ -21,13 +21,7 @@ namespace Rubles
 
             while (answer != "N" && answer != "n")
             {
-                Console.WriteLine("\nВыберите тип операции и введите ее цифру:");
-                Console.WriteLine("1.Рубли в евро");
-                Console.WriteLine("2.Евро в рубли");
-                Console.WriteLine("3.Рубли в доллары");
-                Console.WriteLine("4.Доллары в рубли");
-                Console.WriteLine("5.Доллары в евро");
-                Console.WriteLine("6.Евро в доллары");
+                Console.WriteLine("\nВыберите тип операции и введите ее цифру:\n1.Рубли в евро\n2.Евро в рубли\n3.Рубли в доллары\n4.Доллары в рубли\n5.Доллары в евро\n6.Евро в доллары");
                 operation = int.Parse(Console.ReadLine());
 
                 switch (operation)
@@ -115,13 +109,9 @@ namespace Rubles
                         break;
                 }
 
-                Console.WriteLine("\nВаш баланс");
-                Console.WriteLine($"Рубли: {rubles}");
-                Console.WriteLine($"Евро: {euros}");
-                Console.WriteLine($"Доллары: {dollars}");
-                Console.WriteLine("Желаете продолжить? Y/N?");
+                Console.WriteLine($"\nВаш баланс\nРубли: {rubles}\nЕвро: {euros}\nДоллары: {dollars}\nЖелаете продолжить? Y/N?");
                 answer = Console.ReadLine();
-                
+
                 while (answer != "Y" && answer != "N" && answer != "y" && answer != "n")
                 {
                     Console.WriteLine("Введите корректно Y(продолжить) или N(завершить)");
