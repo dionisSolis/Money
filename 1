@@ -112,7 +112,7 @@ namespace Rubles
                 Console.WriteLine($"\nВаш баланс\nРубли: {rubles}\nЕвро: {euros}\nДоллары: {dollars}\nЖелаете продолжить? Y/N?");
                 answer = Console.ReadLine();
 
-                while (answer != "Y" && answer != "N" && answer != "y" && answer != "n")
+                while (answer.ToUpper() != "Y" && answer.ToUpper() != "N")
                 {
                     Console.WriteLine("Введите корректно Y(продолжить) или N(завершить)");
                     answer = Console.ReadLine();
